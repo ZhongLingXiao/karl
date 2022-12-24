@@ -33,3 +33,7 @@
 
 # vscode
 .vscode
+
+# Generated codes
+bin
+generated

@@ -6,8 +6,10 @@
 /* Section 1 : c stuff (headers files, declarations, variables, etc.) */
 
 %{
-    /* TODO */
+    #include "grammer.tab.h"
 %}
+
+%option noyywrap
 
 
 /* Section 2 : regular expressions */
@@ -30,27 +32,25 @@ comment                 (\/\/)(.*\n)
 
 /* Section 3 : token specification */
 %%
-{comment}               printf("comment     | \t%s\n", yytext);
-{identifier}            printf("identifier  | \t%s\n", yytext);
-{integer}               printf("integer     | \t%s\n", yytext);
-{float}                 printf("float       | \t%s\n", yytext);
-{whitespace}            ;
-"+"                     printf("%s\n", yytext);
-"-"                     printf("%s\n", yytext);
-"*"                     printf("%s\n", yytext);
-"/"                     printf("%s\n", yytext);
-"="                     printf("%s\n", yytext);
-","                     printf("%s\n", yytext);
-";"                     printf("%s\n", yytext);
-"("                     printf("%s\n", yytext);
-")"                     printf("%s\n", yytext);
-"{"                     printf("%s\n", yytext);
-"}"                     printf("%s\n", yytext);
-"[["                    printf("%s\n", yytext);
-"]]"                    printf("%s\n", yytext);
+"def"           { printf("[flex] function id    | \t%s\n", yytext);     return FUNC_ID; }
+"+"             { printf("[flex] +              | \t%s\n", yytext);     return OP_ADD; }
+"-"             { printf("[flex] -              | \t%s\n", yytext);     return OP_MINUS; }
+"*"             { printf("[flex] *              | \t%s\n", yytext);     return OP_MULT; }
+"/"             { printf("[flex] /              | \t%s\n", yytext);     return OP_DIV; }
+"="             { printf("[flex] =              | \t%s\n", yytext);     return EQUAL; }
+":"             { printf("[flex] :              | \t%s\n", yytext);     return COLON; }
+","             { printf("[flex] ,              | \t%s\n", yytext);     return COMMA; }
+";"             { printf("[flex] ;              | \t%s\n", yytext);     return EOL; }
+"("             { printf("[flex] (              | \t%s\n", yytext);     return L_RBRACKET; }
+")"             { printf("[flex] )              | \t%s\n", yytext);     return R_RBRACKET; }
+"{"             { printf("[flex] {              | \t%s\n", yytext);     return L_CBRACKET; }
+"}"             { printf("[flex] }              | \t%s\n", yytext);     return R_CBRACKET; }
+"[["            { printf("[flex] [[             | \t%s\n", yytext);     return META_BEGIN; }
+"]]"            { printf("[flex] ]]             | \t%s\n", yytext);     return META_END; }
+{identifier}    { printf("[flex] identifier     | \t%s\n", yytext);     return INDENTIFIER; }
+{integer}       { printf("[flex] integer        | \t%s\n", yytext);     return VALUE_INT; }
+{float}         { printf("[flex] float          | \t%s\n", yytext);     return VALUE_FLOAT; }
+{comment}       { printf("[flex] comment        | \t%s\n", yytext); }
+{whitespace}    { }
+.               { }  
 %%
-
-/* Section 4 : Add c functions here. */
-int main() {
-    yylex();
-}

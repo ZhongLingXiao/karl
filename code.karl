@@ -1,5 +1,6 @@
-// Add comments here.
+// comments here.
 
-def function(in float input, out float output) {
-    output = 1.0 * input;
+def function_name() {
+    // TODO
+    kazen_codes_here;
 }

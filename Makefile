@@ -1,17 +1,33 @@
+MAKEFLAGS += --silent
+
 all:
+	$(MAKE) grammer
 	$(MAKE) lex
-    
-	# echo    "2. Compiling generated c code : lex.yy.c"
-	gcc lex.yy.c -ll
+	
+	# echo    "Compiling generated c code : lex.yy.c | grammer.tab.c"
+	gcc -c lex.yy.c grammer.tab.c
+	ar rvs grammer.tab.a grammer.tab.o
+	ar rvs lex.yy.a lex.yy.o
+	g++ -std=c++17 main.cpp grammer.tab.a lex.yy.a -ll
 
-	# echo    "3. Tokenize rig code"
-	./a.out < code.karl
+	rm -rf generated
+	mkdir generated
+	mv lex.yy.* ./generated/
+	mv grammer.tab.* ./generated/
+	
+	# echo    "Executing binary"
+	rm -rf bin
+	mkdir bin
+	mv a.out ./bin
+	./bin/a.out < code.karl
 
-	$(MAKE) clean
+grammer:
+	# echo        "bison begin"	
+	bison       -d grammer.y
 
 lex:
-	# echo    "1. Begin Lexing"
-	flex    lex.l
+	# echo        "flex begin"
+	flex        lex.l
 
 clean:
-	rm a.out lex.yy.c
+	rm -rf bin generated
