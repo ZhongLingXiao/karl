@@ -1,0 +1,5 @@
+// Add comments here.
+
+def function(in float input, out float output) {
+    output = 1.0 * input;
+}
