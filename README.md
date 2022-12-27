@@ -21,7 +21,7 @@
 </div>
 
 [![License](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg?style=flat-square)](https://github.com/OpenImageIO/oiio/blob/master/LICENSE.md)
-
+[![ci](https://github.com/ZhongLingXiao/karl/actions/workflows/ci.yml/badge.svg)](https://github.com/ZhongLingXiao/karl/actions/workflows/ci.yml)
 
 Introduction
 ------------
