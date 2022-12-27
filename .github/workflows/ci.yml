@@ -2,7 +2,6 @@
 # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions
 
 name: ci
-run-name: ${{ github.actor }} run github action
 on: [push]
 jobs:
   Ubuntu_20_04:
