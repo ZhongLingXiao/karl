@@ -6,7 +6,7 @@ run-name: ${{ github.actor }} is karl GitHub Actions
 on: [push]
 jobs:
   Ubuntu_20_04:
-    run-on: ubuntu-20.04
+    runs-on: ubuntu-20.04
     steps:
     - name: Checkout karl.
       uses: actions/checkout@v3
