@@ -6,7 +6,7 @@ all:
 	
 	echo    "Compiling generated c code : lex.yy.c | grammer.tab.c"
 	gcc -c lex.yy.c grammer.tab.c
-	g++ -std=c++17 src/main.cpp grammer.tab.o lex.yy.o -ll
+	g++ -std=c++17 src/main.cpp grammer.tab.o lex.yy.o
 
 	rm -rf generated
 	mkdir generated
