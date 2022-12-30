@@ -2,7 +2,16 @@
 # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions
 
 name: ci
-on: [push]
+on:
+  push:
+    # Skip jobs when only documentation files are changed
+    paths-ignore:
+      - '**.md'
+      - '**.rst'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - '**.rst'
 jobs:
   Ubuntu_20_04:
     runs-on: ubuntu-20.04
