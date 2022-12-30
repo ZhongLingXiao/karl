@@ -7,13 +7,19 @@ jobs:
   Ubuntu_20_04:
     runs-on: ubuntu-20.04
     steps:
-    - name: Checkout karl.
+    - name: Checkout karl
       uses: actions/checkout@v3
     
-    - name: Configure enviroment (flex & bison)
+    - name: Get CMake
+      uses: lukka/get-cmake@latest
+
+    - name: Install Flex & Bison
       run: |
            sudo apt-get install flex
            sudo apt-get install bison
 
-    - name: Build Release
-      run: make
+    - name: Configure
+      run: cmake -B build
+
+    - name: Build
+      run: cmake --build build --parallel --config Release

@@ -6,7 +6,7 @@
 /* Section 1 : c stuff (headers files, declarations, variables, etc.) */
 
 %{
-    #include "grammer.tab.h"
+    #include "grammer.h"
 %}
 
 %option noyywrap

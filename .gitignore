@@ -35,5 +35,7 @@
 .vscode
 
 # Generated codes
-bin
 generated
+
+# build folder
+build
