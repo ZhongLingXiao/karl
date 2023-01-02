@@ -12,6 +12,8 @@ int yyerror(const char* s);
 
 %token INDENTIFIER
 %token FUNC_ID
+%token TYPE_INT
+%token TYPE_FLOAT
 %token VALUE_INT
 %token VALUE_FLOAT
 %token L_CBRACKET       "{"
@@ -25,7 +27,7 @@ int yyerror(const char* s);
 %token EQUAL            "="
 %token COLON            ":"
 %token COMMA            ","
-%token EOL              ";"
+%token SEMICOLON        ";"
 %token META_BEGIN       "[["
 %token META_END         "]]"
 

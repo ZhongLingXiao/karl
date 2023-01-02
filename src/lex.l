@@ -6,7 +6,7 @@
 /* Section 1 : c stuff (headers files, declarations, variables, etc.) */
 
 %{
-    #include "grammer.h"
+    #include "grammar.h"
 %}
 
 %option noyywrap
@@ -40,7 +40,7 @@ comment                 (\/\/)(.*\n)
 "="             { printf("[flex] =              | \t%s\n", yytext);     return EQUAL; }
 ":"             { printf("[flex] :              | \t%s\n", yytext);     return COLON; }
 ","             { printf("[flex] ,              | \t%s\n", yytext);     return COMMA; }
-";"             { printf("[flex] ;              | \t%s\n", yytext);     return EOL; }
+";"             { printf("[flex] ;              | \t%s\n", yytext);     return SEMICOLON; }
 "("             { printf("[flex] (              | \t%s\n", yytext);     return L_RBRACKET; }
 ")"             { printf("[flex] )              | \t%s\n", yytext);     return R_RBRACKET; }
 "{"             { printf("[flex] {              | \t%s\n", yytext);     return L_CBRACKET; }

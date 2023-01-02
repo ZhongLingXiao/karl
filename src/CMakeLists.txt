@@ -1,8 +1,8 @@
 set(KARL_LEXER_FILE "${KARL_GENERATED_SOURCE}/lex.c")
-set(KARL_PARSER_FILE "${KARL_GENERATED_SOURCE}/grammer.c")
+set(KARL_PARSER_FILE "${KARL_GENERATED_SOURCE}/grammar.c")
 
 flex_target(KARL_LEXER lex.l "${KARL_LEXER_FILE}" DEFINES_FILE "${KARL_GENERATED_SOURCE}/lex.h")
-bison_target(KARL_PARSER grammer.y "${KARL_PARSER_FILE}" DEFINES_FILE "${KARL_GENERATED_SOURCE}/grammer.h")
+bison_target(KARL_PARSER grammar.y "${KARL_PARSER_FILE}" DEFINES_FILE "${KARL_GENERATED_SOURCE}/grammar.h")
 add_flex_bison_dependency(KARL_LEXER KARL_PARSER)
 
 add_executable(karl 
