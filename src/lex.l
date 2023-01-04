@@ -41,10 +41,10 @@ comment                 (\/\/)(.*\n)
 ":"             { printf("[flex] :              | \t%s\n", yytext);     return COLON; }
 ","             { printf("[flex] ,              | \t%s\n", yytext);     return COMMA; }
 ";"             { printf("[flex] ;              | \t%s\n", yytext);     return SEMICOLON; }
-"("             { printf("[flex] (              | \t%s\n", yytext);     return L_RBRACKET; }
-")"             { printf("[flex] )              | \t%s\n", yytext);     return R_RBRACKET; }
-"{"             { printf("[flex] {              | \t%s\n", yytext);     return L_CBRACKET; }
-"}"             { printf("[flex] }              | \t%s\n", yytext);     return R_CBRACKET; }
+"("             { printf("[flex] (              | \t%s\n", yytext);     return L_PAREN; }
+")"             { printf("[flex] )              | \t%s\n", yytext);     return R_PAREN; }
+"{"             { printf("[flex] {              | \t%s\n", yytext);     return L_BRACE; }
+"}"             { printf("[flex] }              | \t%s\n", yytext);     return R_BRACE; }
 "[["            { printf("[flex] [[             | \t%s\n", yytext);     return META_BEGIN; }
 "]]"            { printf("[flex] ]]             | \t%s\n", yytext);     return META_END; }
 {identifier}    { printf("[flex] identifier     | \t%s\n", yytext);     return INDENTIFIER; }

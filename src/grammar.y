@@ -16,10 +16,12 @@ int yyerror(const char* s);
 %token TYPE_FLOAT
 %token VALUE_INT
 %token VALUE_FLOAT
-%token L_CBRACKET       "{"
-%token R_CBRACKET       "}"
-%token L_RBRACKET       "("
-%token R_RBRACKET       ")"
+%token L_BRACE          "{"
+%token R_BRACE          "}"
+%token L_BRACKET        "["
+%token R_BRACKET        "]"
+%token L_PAREN          "("
+%token R_PAREN          ")"
 %token OP_ADD           "+"
 %token OP_MINUS         "-"
 %token OP_MULT          "*"
