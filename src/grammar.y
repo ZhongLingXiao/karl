@@ -69,7 +69,8 @@ exprStmt
     : expression ";"
 
 block
-    : "{" declarations "}"
+    : "{" "}"
+    | "{" declarations "}"
 
 // Expressions
 expression
