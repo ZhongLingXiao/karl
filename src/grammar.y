@@ -1,3 +1,8 @@
+/* Copyright Contributors to the Kazen Rigging Language project.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * https://github.com/ZhongLingXiao/karl
+ */
+
 /* 
  * Parser for Kazen Rigging Language
  */
@@ -58,7 +63,7 @@ varDecl
     | type IDENTIFIER "=" assignment ";" { printf("[bison] variable declaration with init value.\n"); }
 
 funDecl
-    :FUNC_ID function { printf("[bison] function declaration.\n"); }
+    : FUNC_ID function { printf("[bison] function declaration.\n"); }
 
 // Statements
 statement

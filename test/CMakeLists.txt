@@ -1,8 +1,9 @@
-file(GLOB KARL_TEST_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+# Copyright Contributors to the Kazen Rigging Language project.
+# SPDX-License-Identifier: BSD-3-Clause
+# https://github.com/ZhongLingXiao/karl
 
-add_executable( karl_test
-    ${KARL_TEST_SOURCE}
-)
+file(GLOB KARL_TEST_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+add_executable(karl_test ${KARL_TEST_SOURCE})
 
 target_link_libraries(karl_test PRIVATE
     karl

@@ -1,4 +1,6 @@
-// This is simple code for test.
+// Copyright Contributors to the Kazen Rigging Language project.
+// SPDX-License-Identifier: BSD-3-Clause
+// https://github.com/ZhongLingXiao/karl
 
 def function_name() {
     // basic variable declarations

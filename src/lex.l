@@ -1,7 +1,11 @@
+/* Copyright Contributors to the Kazen Rigging Language project.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * https://github.com/ZhongLingXiao/karl
+ */
+
 /* 
  * Lexical scanner for Kazen Rigging Language
  */
-
 
 /* Section 1 : c stuff (headers files, declarations, variables, etc.) */
 

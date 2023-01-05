@@ -1,3 +1,7 @@
+# Copyright Contributors to the Kazen Rigging Language project.
+# SPDX-License-Identifier: BSD-3-Clause
+# https://github.com/ZhongLingXiao/karl
+
 cmake_minimum_required(VERSION 3.20)
 
 set(CMAKE_CXX_STANDARD 17)
