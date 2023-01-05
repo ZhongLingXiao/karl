@@ -38,4 +38,9 @@ find_package(BISON REQUIRED)
 file(MAKE_DIRECTORY "generated")
 set(KARL_GENERATED_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/generated")
 
+# Add external libraries
+add_subdirectory(ext)
+
 add_subdirectory(src)
+
+add_subdirectory(test)

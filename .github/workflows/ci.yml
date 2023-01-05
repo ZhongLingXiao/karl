@@ -34,4 +34,4 @@ jobs:
       run: cmake --build build --parallel --config Release
 
     - name: Test
-      run: ${{github.workspace}}/build/bin/karl < testsuite/simple/code.karl
+      run: ${{github.workspace}}/build/bin/karl_test
