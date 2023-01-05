@@ -32,25 +32,27 @@ comment                 (\/\/)(.*\n)
 
 /* Section 3 : token specification */
 %%
-"def"           { printf("[flex] function id    | \t%s\n", yytext);     return FUNC_ID; }
-"+"             { printf("[flex] +              | \t%s\n", yytext);     return OP_ADD; }
-"-"             { printf("[flex] -              | \t%s\n", yytext);     return OP_MINUS; }
-"*"             { printf("[flex] *              | \t%s\n", yytext);     return OP_MULT; }
-"/"             { printf("[flex] /              | \t%s\n", yytext);     return OP_DIV; }
-"="             { printf("[flex] =              | \t%s\n", yytext);     return EQUAL; }
-":"             { printf("[flex] :              | \t%s\n", yytext);     return COLON; }
-","             { printf("[flex] ,              | \t%s\n", yytext);     return COMMA; }
-";"             { printf("[flex] ;              | \t%s\n", yytext);     return SEMICOLON; }
-"("             { printf("[flex] (              | \t%s\n", yytext);     return L_PAREN; }
-")"             { printf("[flex] )              | \t%s\n", yytext);     return R_PAREN; }
-"{"             { printf("[flex] {              | \t%s\n", yytext);     return L_BRACE; }
-"}"             { printf("[flex] }              | \t%s\n", yytext);     return R_BRACE; }
-"[["            { printf("[flex] [[             | \t%s\n", yytext);     return META_BEGIN; }
-"]]"            { printf("[flex] ]]             | \t%s\n", yytext);     return META_END; }
-{identifier}    { printf("[flex] identifier     | \t%s\n", yytext);     return INDENTIFIER; }
-{integer}       { printf("[flex] integer        | \t%s\n", yytext);     return VALUE_INT; }
-{float}         { printf("[flex] float          | \t%s\n", yytext);     return VALUE_FLOAT; }
-{comment}       { printf("[flex] comment        | \t%s\n", yytext); }
+"int"           { printf("[flex] type int           | \t%s\n", yytext);     return TYPE_INT; }
+"float"         { printf("[flex] type float         | \t%s\n", yytext);     return TYPE_FLOAT; }
+"def"           { printf("[flex] func def keyword   | \t%s\n", yytext);     return FUNC_ID; }
+"+"             { printf("[flex] +                  | \t%s\n", yytext);     return OP_ADD; }
+"-"             { printf("[flex] -                  | \t%s\n", yytext);     return OP_MINUS; }
+"*"             { printf("[flex] *                  | \t%s\n", yytext);     return OP_MULT; }
+"/"             { printf("[flex] /                  | \t%s\n", yytext);     return OP_DIV; }
+"="             { printf("[flex] =                  | \t%s\n", yytext);     return EQUAL; }
+":"             { printf("[flex] :                  | \t%s\n", yytext);     return COLON; }
+","             { printf("[flex] ,                  | \t%s\n", yytext);     return COMMA; }
+";"             { printf("[flex] ;                  | \t%s\n", yytext);     return SEMICOLON; }
+"("             { printf("[flex] (                  | \t%s\n", yytext);     return L_PAREN; }
+")"             { printf("[flex] )                  | \t%s\n", yytext);     return R_PAREN; }
+"{"             { printf("[flex] {                  | \t%s\n", yytext);     return L_BRACE; }
+"}"             { printf("[flex] }                  | \t%s\n", yytext);     return R_BRACE; }
+"[["            { printf("[flex] [[                 | \t%s\n", yytext);     return META_BEGIN; }
+"]]"            { printf("[flex] ]]                 | \t%s\n", yytext);     return META_END; }
+{identifier}    { printf("[flex] identifier         | \t%s\n", yytext);     return IDENTIFIER; }
+{integer}       { printf("[flex] integer            | \t%s\n", yytext);     return VALUE_INT; }
+{float}         { printf("[flex] float              | \t%s\n", yytext);     return VALUE_FLOAT; }
+{comment}       { printf("[flex] comment            | \t%s\n", yytext); }
 {whitespace}    { }
 .               { }  
 %%

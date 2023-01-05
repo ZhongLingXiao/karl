@@ -47,24 +47,53 @@ build/bin/karl < testsuite/simple/code.karl
 ```
 Current result looks like this :
 ```
-[flex] comment        |         // comments here.
+[flex] comment            |     // This is simple code for test.
 
 
-[flex] function id    |         def
-[flex] identifier     |         function_name
-[flex] (              |         (
-[flex] )              |         )
-[flex] {              |         {
+[flex] func def keyword   |     def
+[flex] identifier         |     function_name
+[flex] (                  |     (
+[flex] )                  |     )
+[flex] {                  |     {
 
-[flex] comment        |         // TODO
+[flex] comment            |     // basic variable declarations
 
-[flex] identifier     |         kazen_codes_here
-[flex] ;              |         ;
-[bison] TODO: statement.
-[bison] single statement.
+[flex] type int           |     int
+[flex] identifier         |     intVal
+[flex] =                  |     =
+[flex] integer            |     10
+[flex] ;                  |     ;
+[bison] variable declaration with init value.
 
-[flex] }              |         }
-[bison] function body.
-[bison] function definition.
-[bison] program.
+[flex] type float         |     float
+[flex] identifier         |     floatVal
+[flex] =                  |     =
+[flex] float              |     10.0
+[flex] ;                  |     ;
+[bison] variable declaration with init value.
+
+
+[flex] type float         |     float
+[flex] identifier         |     funcVal
+[flex] =                  |     =
+[flex] identifier         |     func
+[flex] (                  |     (
+[flex] )                  |     )
+[flex] ;                  |     ;
+[bison] variable declaration with init value.
+
+
+[flex] type int           |     int
+[flex] identifier         |     uninitVal
+[flex] ;                  |     ;
+[bison] variable declaration.
+
+[flex] identifier         |     uninitVal
+[flex] =                  |     =
+[flex] identifier         |     zhong
+[bison] value assignment.
+[flex] ;                  |     ;
+
+[flex] }                  |     }
+[bison] function declaration.
 ```

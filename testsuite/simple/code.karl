@@ -1,6 +1,12 @@
-// comments here.
+// This is simple code for test.
 
 def function_name() {
-    // TODO
-    kazen_codes_here;
+    // basic variable declarations
+    int intVal = 10;
+    float floatVal = 10.0;
+    
+    float funcVal = func();
+    
+    int uninitVal;
+    uninitVal = zhong;
 }

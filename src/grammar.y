@@ -10,7 +10,7 @@ int yyerror(const char* s);
 %}
 
 
-%token INDENTIFIER
+%token IDENTIFIER
 %token FUNC_ID
 %token TYPE_INT
 %token TYPE_FLOAT
@@ -37,40 +37,65 @@ int yyerror(const char* s);
 // Define the starting nonterminal
 %start program
 
+// TEMP: This syntax grammar is based on crafting interpreters
+// https://zihengcat.github.io/crafting-interpreters-zh-cn/appendix-i.html
 %%
-program:
-    FUNC_ID function_definition {
-        printf("[bison] program.\n");
-    };
+program 
+    : declarations
 
-function_definition:
-    INDENTIFIER "(" ")" function_body {
-        printf("[bison] function definition.\n");
-    };
+// Declarations
+declarations
+    : declaration
+    | declarations declaration
 
-function_body:
-    "{" "}" {
-        printf("[bison] empty function body.\n");
-    }
-    |
-    "{" stmts "}" {
-        printf("[bison] function body.\n");
-    };
+declaration
+    : varDecl
+    | funDecl
+    | statement
 
-stmts:
-    stmt {
-        printf("[bison] single statement.\n");
-    }
-    |
-    stmts stmt {
-        printf("[bison] multi statements.\n");
-    };
+varDecl
+    : type IDENTIFIER ";" { printf("[bison] variable declaration.\n"); }
+    | type IDENTIFIER "=" assignment ";" { printf("[bison] variable declaration with init value.\n"); }
 
-stmt:
-    INDENTIFIER ";" {
-        printf("[bison] TODO: statement.\n");
-    }
-    ;
+funDecl
+    :FUNC_ID function { printf("[bison] function declaration.\n"); }
+
+// Statements
+statement
+    : exprStmt
+    | block
+
+exprStmt
+    : expression ";"
+
+block
+    : "{" declarations "}"
+
+// Expressions
+expression
+    : assignment
+
+assignment
+    : IDENTIFIER "=" primary { printf("[bison] value assignment.\n"); }
+    | call
+
+call
+    : primary
+    | primary "(" ")"
+
+primary
+    : "true" | "false" | "null" | "this"
+    | VALUE_INT | VALUE_FLOAT
+    | "(" expression ")" 
+    | IDENTIFIER
+
+// Utility rules
+type
+    : TYPE_INT
+    | TYPE_FLOAT
+
+function
+    : IDENTIFIER "(" ")" block
 
 %%
 
