@@ -43,57 +43,49 @@ cmake --build build --parallel --config Release
 Test
 ------------
 ```bash
-build/bin/karl < testsuite/simple/code.karl
+build/bin/karl_test
 ```
 Current result looks like this :
 ```
-[flex] comment            |     // This is simple code for test.
-
+Running main() from /home/kazenzhong/dev/karl/ext/googletest/googletest/src/gtest_main.cc
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from simple
+[ RUN      ] simple.empty_func
 
 [flex] func def keyword   |     def
-[flex] identifier         |     function_name
+[flex] identifier         |     func
+[flex] (                  |     (
+[flex] )                  |     )
+[flex] {                  |     {
+[flex] }                  |     }
+[bison] function declaration.
+
+[       OK ] simple.empty_func (0 ms)
+[ RUN      ] simple.basic_func_def
+
+[flex] comment            |     // TODO here.
+
+[flex] func def keyword   |     def
+[flex] identifier         |     func
 [flex] (                  |     (
 [flex] )                  |     )
 [flex] {                  |     {
 
-[flex] comment            |     // basic variable declarations
-
 [flex] type int           |     int
-[flex] identifier         |     intVal
+[flex] identifier         |     a
 [flex] =                  |     =
 [flex] integer            |     10
 [flex] ;                  |     ;
 [bison] variable declaration with init value.
 
-[flex] type float         |     float
-[flex] identifier         |     floatVal
-[flex] =                  |     =
-[flex] float              |     10.0
-[flex] ;                  |     ;
-[bison] variable declaration with init value.
-
-
-[flex] type float         |     float
-[flex] identifier         |     funcVal
-[flex] =                  |     =
-[flex] identifier         |     func
-[flex] (                  |     (
-[flex] )                  |     )
-[flex] ;                  |     ;
-[bison] variable declaration with init value.
-
-
-[flex] type int           |     int
-[flex] identifier         |     uninitVal
-[flex] ;                  |     ;
-[bison] variable declaration.
-
-[flex] identifier         |     uninitVal
-[flex] =                  |     =
-[flex] identifier         |     zhong
-[bison] value assignment.
-[flex] ;                  |     ;
-
 [flex] }                  |     }
 [bison] function declaration.
+
+[       OK ] simple.basic_func_def (0 ms)
+[----------] 2 tests from simple (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 2 tests.
 ```
