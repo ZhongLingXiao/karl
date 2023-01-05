@@ -32,3 +32,6 @@ jobs:
 
     - name: Build
       run: cmake --build build --parallel --config Release
+
+    - name: Test
+      run: ./build/bin/karl < testsuite/simple/code.karl
