@@ -14,7 +14,7 @@
 %}
 
 %option noyywrap
-
+%option yylineno
 
 /* Section 2 : regular expressions */
 
@@ -58,5 +58,6 @@ comment                 (\/\/)(.*\n)
 {float}         { printf("[flex] float              | \t%s\n", yytext);     return VALUE_FLOAT; }
 {comment}       { printf("[flex] comment            | \t%s\n", yytext); }
 {whitespace}    { }
-.               { }  
+.               { }
+[\n]+           { }
 %%

@@ -15,3 +15,4 @@ add_library(karl SHARED
 )
 
 target_include_directories(karl PUBLIC "${KARL_GENERATED_SOURCE}")
+target_compile_definitions(karl PUBLIC -DYYERROR_VERBOSE)

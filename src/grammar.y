@@ -11,9 +11,11 @@
 #include <stdio.h>
 
 int yylex();
-int yyerror(const char* s);
+void yyerror(const char* s);
+extern int yylineno;
 %}
 
+%locations
 
 %token IDENTIFIER
 %token FUNC_ID
@@ -105,8 +107,12 @@ function
 
 %%
 
-int yyerror(const char* s) {
-    printf("Syntax Error : %s\n", s);
-    return 0;
+#define NONE "\033[m"
+#define RED "\033[1;32;31m"
+#define GREEN "\033[1;32;32m"
+#define YELLOW "\033[1;33m"
+
+void yyerror(const char* s) {
+    printf(RED"[Error] %s at line (%d) \n"NONE, s, yylineno);
 }
 
