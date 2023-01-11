@@ -18,7 +18,7 @@ extern int yylineno;
 %locations
 
 %token IDENTIFIER
-%token FUNC_ID
+%token KERNEL
 %token TYPE_INT
 %token TYPE_FLOAT
 %token VALUE_INT
@@ -65,7 +65,7 @@ varDecl
     | type IDENTIFIER "=" assignment ";" { printf("[bison] variable declaration with init value.\n"); }
 
 funDecl
-    : FUNC_ID function { printf("[bison] function declaration.\n"); }
+    : KERNEL function { printf("[bison] kernel function declaration.\n"); }
 
 // Statements
 statement

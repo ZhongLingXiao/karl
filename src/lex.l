@@ -38,7 +38,7 @@ comment                 (\/\/)(.*\n)
 %%
 "int"           { printf("[flex] type int           | \t%s\n", yytext);     return TYPE_INT; }
 "float"         { printf("[flex] type float         | \t%s\n", yytext);     return TYPE_FLOAT; }
-"def"           { printf("[flex] func def keyword   | \t%s\n", yytext);     return FUNC_ID; }
+"kernel"        { printf("[flex] kernel keyword     | \t%s\n", yytext);     return KERNEL; }
 "+"             { printf("[flex] +                  | \t%s\n", yytext);     return OP_ADD; }
 "-"             { printf("[flex] -                  | \t%s\n", yytext);     return OP_MINUS; }
 "*"             { printf("[flex] *                  | \t%s\n", yytext);     return OP_MULT; }

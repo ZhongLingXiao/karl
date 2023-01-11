@@ -5,7 +5,7 @@
 
 TEST(simple, empty_func) {
     const char* source_code = 
-        R"(def func() {
+        R"(kernel func() {
             }
         )";
 
@@ -14,7 +14,7 @@ TEST(simple, empty_func) {
 
 TEST(simple, basic_func_def) {
     const char* source_code = 
-    R"(def func() {
+    R"(kernel func() {
             int a = 10;
             // This will generate error and show message : 
             // `[Error] syntax error, unexpected =, expecting ; at line (5)`

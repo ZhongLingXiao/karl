@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // https://github.com/ZhongLingXiao/karl
 
-def function_name() {
+kernel kernel_function() {
     // basic variable declarations
     int intVal = 10;
     float floatVal = 10.0;
