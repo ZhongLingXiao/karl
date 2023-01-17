@@ -28,22 +28,26 @@ Introduction
 
 karl (kazen rigging language) is an experimental project for learning `flex & bison` and `llvm`.
 
-Build
+Building
 ------------
-Configure
-```bash
-cmake -B build
+**Required dependencies**
+```
+ - flex: 2.6.4
+ - bison: 3.8.2
+ - cmake: 3.20.0
 ```
 
-Build
+**Configure & Build**
 ```bash
-cmake --build build --parallel --config Release
+> chmod +x build.sh
+> ./build.sh
 ```
+
 
 Test
 ------------
 ```bash
-build/bin/karl_test
+> build/bin/karl_test
 ```
 Current result looks like this :
 ```
@@ -88,4 +92,12 @@ Running main() from /home/kazenzhong/dev/karl/ext/googletest/googletest/src/gtes
 [----------] Global test environment tear-down
 [==========] 2 tests from 1 test suite ran. (0 ms total)
 [  PASSED  ] 2 tests.
+```
+
+The error message looks like this:
+```
+[error] 5.5 => syntax error: expected ; before =
+    5 | this will be source code.
+      |     ^
+      |     add expected fix here.
 ```

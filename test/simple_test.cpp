@@ -4,23 +4,23 @@
 #include "util.h"
 
 TEST(simple, empty_func) {
-    const char* source_code = 
-        R"(kernel func() {
-            }
-        )";
+    const char* source_code = 1 + R"(
+kernel func() { 
+}
+)";
 
     compile(source_code);
 }
 
 TEST(simple, basic_func_def) {
-    const char* source_code = 
-    R"(kernel func() {
-            int a = 10;
-            // This will generate error and show message : 
-            // `[Error] syntax error, unexpected =, expecting ; at line (5)`
-            // 1=x;
-        }
-    )";
+    const char* source_code = 1 + R"(
+kernel func() {
+    int a = 10;
+    // This will generate error and show message : 
+    // `[Error] syntax error, unexpected =, expecting ; at line (5)`
+    1=x;
+}
+)";
 
     compile(source_code);
 }
