@@ -16,8 +16,8 @@ on:
       - '**.md'
       - '**.rst'
 jobs:
-  Ubuntu_20_04:
-    runs-on: ubuntu-20.04
+  Ubuntu_22_04:
+    runs-on: ubuntu-22.04
     steps:
     - name: Checkout karl
       uses: actions/checkout@v3

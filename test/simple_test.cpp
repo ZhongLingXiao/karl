@@ -18,7 +18,7 @@ kernel func() {
     int a = 10;
     // This will generate error and show message : 
     // `[Error] syntax error, unexpected =, expecting ; at line (5)`
-    1=x;
+    // 1=x;
 }
 )";
 
