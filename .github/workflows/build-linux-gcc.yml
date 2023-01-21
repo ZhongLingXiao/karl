@@ -4,7 +4,7 @@
 
 # GitHub Actions workflow file for CI
 # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions
-name: ci
+name: Linux (gcc)
 on:
   push:
     # Skip jobs when only documentation files are changed
@@ -15,52 +15,30 @@ on:
     paths-ignore:
       - '**.md'
       - '**.rst'
+  workflow_dispatch:
+
 jobs:
-  Ubuntu_22_04:
+  build:
     runs-on: ubuntu-22.04
     steps:
-    - name: Checkout karl
+    - name: "Checkout karl"
       uses: actions/checkout@v3
       with:
         submodules: recursive    
-    - name: Get CMake
+    
+    - name: "Setup CMake"
       uses: lukka/get-cmake@latest
 
-    - name: Install Flex & Bison
+    - name: "Setup Flex & Bison"
       run: |
            sudo apt-get install flex
            sudo apt-get install bison
 
-    - name: Configure
+    - name: "Configure"
       run: cmake -B build
 
-    - name: Build
+    - name: "Build"
       run: cmake --build build --parallel --config Release
 
-    - name: Test
-      run: ${{github.workspace}}/build/bin/karl_test
-
-  MacOS:
-    runs-on: macOS-latest
-    steps:
-    - name: Checkout karl
-      uses: actions/checkout@v3
-      with:
-        submodules: recursive    
-    - name: Get CMake
-      uses: lukka/get-cmake@latest
-
-    - name: Install Flex & Bison
-      run: |
-          brew install flex bison
-          echo "/usr/local/opt/flex/bin" >> $GITHUB_PATH
-          echo "/usr/local/opt/bison/bin" >> $GITHUB_PATH
-
-    - name: Configure
-      run: cmake -B build
-
-    - name: Build
-      run: cmake --build build --parallel --config Release
-
-    - name: Test
+    - name: "Test"
       run: ${{github.workspace}}/build/bin/karl_test

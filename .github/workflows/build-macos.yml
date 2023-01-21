@@ -1,0 +1,45 @@
+# Copyright Contributors to the Kazen Rigging Language project.
+# SPDX-License-Identifier: BSD-3-Clause
+# https://github.com/ZhongLingXiao/karl
+
+# GitHub Actions workflow file for CI
+# https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions
+name: MacOS
+on:
+  push:
+    # Skip jobs when only documentation files are changed
+    paths-ignore:
+      - '**.md'
+      - '**.rst'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - '**.rst'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+    - name: "Checkout karl"
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive    
+    
+    - name: "Setup CMake"
+      uses: lukka/get-cmake@latest
+
+    - name: "Setup Flex & Bison"
+      run: |
+          brew install flex bison
+          echo "/usr/local/opt/flex/bin" >> $GITHUB_PATH
+          echo "/usr/local/opt/bison/bin" >> $GITHUB_PATH
+
+    - name: "Configure"
+      run: cmake -B build
+
+    - name: "Build"
+      run: cmake --build build --parallel --config Release
+
+    - name: "Test"
+      run: ${{github.workspace}}/build/bin/karl_test
