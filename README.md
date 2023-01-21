@@ -21,7 +21,10 @@
 </div>
 
 [![License](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg?style=flat-square)](https://github.com/ZhongLingXiao/karl/blob/main/LICENSE)
-[![ci](https://github.com/ZhongLingXiao/karl/actions/workflows/ci.yml/badge.svg)](https://github.com/ZhongLingXiao/karl/actions/workflows/ci.yml)
+<br/>
+
+[![Linux (gcc)](https://github.com/ZhongLingXiao/karl/actions/workflows/build-linux-gcc.yml/badge.svg)](https://github.com/ZhongLingXiao/karl/actions/workflows/build-linux-gcc.yml)
+[![MacOS](https://github.com/ZhongLingXiao/karl/actions/workflows/build-macos.yml/badge.svg)](https://github.com/ZhongLingXiao/karl/actions/workflows/build-macos.yml)
 
 Introduction
 ------------
