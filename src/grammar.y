@@ -10,7 +10,6 @@
 %{
     #include <ctype.h>      // isdigit
     #include <stdio.h>      // printf
-    #include <libintl.h>    // gettext
 %}
 
 %code provides {
@@ -153,8 +152,8 @@ static void location_print(FILE *file, YYLTYPE const * const loc) {
 static const char* error_format_string (int argc) {
     switch (argc) {
         default: // Avoid compiler warnings.
-        case 0: return gettext("%@ => syntax error");
-        case 1: return gettext("%@ => syntax error: unexpected %u");
+        case 0: return "%@ => syntax error";
+        case 1: return "%@ => syntax error: unexpected %u";
         // TRANSLATORS: '%@' is a location in a file, '%u' is an
         // "unexpected token", and '%0e', '%1e'... are expected tokens
         // at this point.
@@ -162,13 +161,13 @@ static const char* error_format_string (int argc) {
         // For instance on the expression "1 + * 2", you'd get
         //
         // 1.5: syntax error: expected - or ( or number or function or variable before *
-        case 2: return gettext("%@ => syntax error: expected %0e before %u");
-        case 3: return gettext("%@ => syntax error: expected %0e or %1e before %u");
-        case 4: return gettext("%@ => syntax error: expected %0e or %1e or %2e before %u");
-        case 5: return gettext("%@ => syntax error: expected %0e or %1e or %2e or %3e before %u");
-        case 6: return gettext("%@ => syntax error: expected %0e or %1e or %2e or %3e or %4e before %u");
-        case 7: return gettext("%@ => syntax error: expected %0e or %1e or %2e or %3e or %4e or %5e before %u");
-        case 8: return gettext("%@ => syntax error: expected %0e or %1e or %2e or %3e or %4e or %5e etc., before %u");
+        case 2: return "%@ => syntax error: expected %0e before %u";
+        case 3: return "%@ => syntax error: expected %0e or %1e before %u";
+        case 4: return "%@ => syntax error: expected %0e or %1e or %2e before %u";
+        case 5: return "%@ => syntax error: expected %0e or %1e or %2e or %3e before %u";
+        case 6: return "%@ => syntax error: expected %0e or %1e or %2e or %3e or %4e before %u";
+        case 7: return "%@ => syntax error: expected %0e or %1e or %2e or %3e or %4e or %5e before %u";
+        case 8: return "%@ => syntax error: expected %0e or %1e or %2e or %3e or %4e or %5e etc., before %u";
     }
 }
 
