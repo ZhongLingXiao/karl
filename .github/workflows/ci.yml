@@ -52,12 +52,10 @@ jobs:
 
     - name: Install Flex & Bison
       run: |
-           brew install flex
-           brew install bison
-           echo 'export PATH="/usr/local/opt/bison/bin:$PATH"' >> ~/.bash_profile
-           source ~/.bash_profile
-           bison -V
-           
+          brew install flex bison
+          echo "/usr/local/opt/flex/bin" >> $GITHUB_PATH
+          echo "/usr/local/opt/bison/bin" >> $GITHUB_PATH
+
     - name: Configure
       run: cmake -B build
 
