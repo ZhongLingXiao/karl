@@ -7,24 +7,16 @@ assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## Bug Report
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. 
-2. 
-3. 
+Please answer these questions before submitting your issue. Thanks!
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+### 1. Minimal reproduce step (Required)
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+<!-- a step by step guide for reproducing the bug. -->
 
-**Platform (please complete the following information):**
- - OS: [e.g. Ubuntu-22.04]
- - CPU: [e.g. intel]
+### 2. What did you expect to see? (Required)
 
-**Additional context**
-Add any other context about the problem here.
+### 3. What did you see instead (Required)
+
+### 4. What is your karl version? (Required)
