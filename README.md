@@ -1,17 +1,4 @@
-``` 
- __  ___      ___      .______       __      
-|  |/  /     /   \     |   _  \     |  |     
-|  '  /     /  ^  \    |  |_)  |    |  |     
-|    <     /  /_\  \   |      /     |  |     
-|  .  \   /  _____  \  |  |\  \----.|  `----.
-|__|\__\ /__/     \__\ | _| `._____||_______|
-                                             
-====================================================================
- karl: kazen rigging language                              
- Version Alpha 0.0.1a                                            
- Copyright (C) 2022 ZhongLingXiao && Joey Chen. All rights reserved.                          
-====================================================================
-```
+![](https://github.com/ZhongLingXiao/karl-wiki/blob/master/img/cover.jpg)
 
 <div align="center">
 
