@@ -2,8 +2,6 @@
 
 <div align="center">
 
-# Karl
-
 **Experimental domain specific language for rigging**
 </div>
 
