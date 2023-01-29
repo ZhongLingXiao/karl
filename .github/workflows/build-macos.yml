@@ -18,7 +18,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-test:
+    name: Build and test
     runs-on: macOS-latest
     steps:
     - name: "Checkout karl"
@@ -43,3 +44,17 @@ jobs:
 
     - name: "Test"
       run: ${{github.workspace}}/build/bin/karl_test
+
+  required:
+    if: always()
+    name: Required
+    runs-on: macOS-latest
+    needs:
+      - build-and-test
+    steps:
+      - name: Merge requirement checking
+        run: |
+          build_and_test=${{ needs.build-and-test.result }}
+          if [[ $build_and_test != 'success' ]]; then
+            exit 1
+          fi

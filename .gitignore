@@ -39,3 +39,7 @@ generated
 
 # build folder
 build
+
+# clangd
+.cache
+compile_commands.json
