@@ -1,4 +1,4 @@
-![](https://github.com/ZhongLingXiao/karl-wiki/blob/master/img/cover.jpg)
+![](https://github.com/ZhongLingXiao/karl-wiki/blob/master/img/cover.jpeg)
 
 <div align="center">
 
